@@ -1,9 +1,7 @@
 <?php
 
-//$test = 123;
+// //$test = 123;
 
-echo $test;
+// echo $test;
 
 phpinfo();
-
-?>
