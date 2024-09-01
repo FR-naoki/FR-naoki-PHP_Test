@@ -1,3 +1,4 @@
+Options +Indexes
 AuthType Basic
 AuthName "IDとパスワードを入力してください"
 AuthUserFile /Applications/MAMP/htdocs/PHPからLaravelまで サーバーサイドをとことん/php_test_20210703/section2/mainte/.htpasswd
