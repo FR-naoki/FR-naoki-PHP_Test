@@ -14,8 +14,8 @@ require 'db_connection.php';
 
 // ユーザー入力あり prepare, bind, execute 悪意ユーザ delete * SQLインジェクション対策
 $sql = 'select * from contacts where id = :id'; //名前付きプレースホルダ
-$stmt = $pdo->prepare($sql);//プリペアードステートメント
-$stmt->bindValue('id', 5, PDO::PARAM_INT);//紐付け
+$stmt = $pdo->prepare($sql); //プリペアードステートメント
+$stmt->bindValue('id', 5, PDO::PARAM_INT); //紐付け
 $stmt->execute(); //実行
 
 $result = $stmt->fetchall();
@@ -29,16 +29,15 @@ echo '</pre>';
 
 $pdo->beginTransaction();
 
-try{
+try {
 
-//sql処理
-$stmt = $pdo->prepare($sql);//プリペアードステートメント
-$stmt->bindValue('id', 5, PDO::PARAM_INT);//紐付け
-$stmt->execute(); //実行
+  //sql処理
+  $stmt = $pdo->prepare($sql); //プリペアードステートメント
+  $stmt->bindValue('id', 5, PDO::PARAM_INT); //紐付け
+  $stmt->execute(); //実行
 
-$pdo->commit();
+  $pdo->commit();
+} catch (PDOException $e) {
 
-}catch(PDOException $e){
-  
-  $pdo->rollback();//更新のキャンセル
+  $pdo->rollback(); //更新のキャンセル
 }
