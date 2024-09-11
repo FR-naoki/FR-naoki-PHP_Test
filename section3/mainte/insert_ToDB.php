@@ -2,7 +2,7 @@
 
 // DB接続 PDO
 
-require 'db_connection.php';
+require 'db_connection_2.php';
 
 
 // 入力 DB保存 prepare, execute(配列(全て文字列))
@@ -23,19 +23,22 @@ $count = 0;
 $columns = '';
 $values = '';
 
-foreach(array_keys($params) as $key){
-  if($count++>0){
+foreach (array_keys($params) as $key) {
+  if ($count++ > 0) {
     $columns .= ',';
     $values .= ',';
   }
   $columns .= $key;
-  $values .= ':'.$key;
+  $values .= ':' . $key;
 }
 
-$sql = 'insert into contacts ('. $columns .')values('. $values .')';
+$sql = 'insert into contacts (' . $columns . ')values(' . $values . ')';
 
-// var_dump($sql);
+
+echo '<br>';
+var_dump($sql);
+
 // exit;
 
-$stmt = $pdo->prepare($sql);//プリペアードステートメント
+$stmt = $pdo->prepare($sql); //プリペアードステートメント
 $stmt->execute($params); //実行

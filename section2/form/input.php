@@ -123,7 +123,9 @@ if (!empty($_POST['btn_submit'])) {
 
       <!-- DB接続 -->
       <!-- DB保存 -->
-
+      <?php require '../section3/mainte/insert.php';
+      insertContact($_POST);
+      ?>
       送信が完了しました。
 
       <?php unset($_SESSION['csrfToken']); ?>
