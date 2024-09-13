@@ -4,7 +4,7 @@
 
 function insertContact($request)
 {
-  require 'db_connection.php';
+  require 'db_connection_2.php';
 
 
   // 入力 DB保存 prepare, execute(配列(全て文字列))

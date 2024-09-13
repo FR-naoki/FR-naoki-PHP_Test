@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -6,33 +6,38 @@ session_start();
 
 
 <html>
+
 <head></head>
+
 <body>
 
-<?php
+  <?php
 
-echo 'セッション破棄しました';
+  echo 'セッション破棄しました';
 
-$_SESSION = [];
+  $_SESSION = [];
 
-if(isset($_COOKIE['PHPSESSID'])){
-  setcookie('PHPSESSID', '', time() - 1800, '/');
-}
+  if (isset($_COOKIE['PHPSESSID'])) {
+    setcookie('PHPSESSID', '', time() - 1800, '/');
+  }
 
-session_destroy();
+  session_destroy();
 
-echo 'セッション';
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
+  echo '<br>';
+  echo 'セッション';
+  echo '<pre>';
+  var_dump($_SESSION);
+  echo '</pre>';
 
-echo 'クッキー';
-echo '<pre>';
-var_dump($_COOKIE);
-echo '</pre>';
-
-
-?>
+  echo 'クッキー';
+  echo '<pre>';
+  var_dump($_COOKIE);
+  echo '</pre>';
 
 
-</body></html>
+  ?>
+
+
+</body>
+
+</html>
