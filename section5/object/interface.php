@@ -7,43 +7,46 @@
 // error_reporting(E_ALL);
 
 //インターフェース
-interface ProductInterface{
+interface ProductInterface
+{
   //変数 関数
   // public function echoProduct(){
   //   echo '親クラスです';
   // }
 
   public function getProduct();
-
 }
 
 //インターフェース
-interface NewsInterface{
+interface NewsInterface
+{
   //変数 関数
   // public function echoProduct(){
   //   echo '親クラスです';
   // }
 
-  
   public function getNews();
-
 }
 
 //具象クラス、親クラス・基底クラス・スーパークラス
-class BaseProduct{
+class BaseProduct
+{
   //変数 関数
-  public function echoProduct(){
+  public function echoProduct()
+  {
     echo '親クラスです';
   }
 
   //オーバーライド(上書き)
-  public function getProduct(){
+  public function getProduct()
+  {
     echo '親の関数です';
   }
 }
 
 //子クラス・派生クラス・サブクラス
-class Product implements ProductInterface, NewsInterface {
+class Product implements ProductInterface, NewsInterface
+{
 
   //アクセス修飾子, private(外からアクセスできない), protected(自分・継承したクラス), public(公開)
 
@@ -53,29 +56,33 @@ class Product implements ProductInterface, NewsInterface {
   //関数
 
   //初回
-  function __construct($product = null){
+  function __construct($product = null)
+  {
 
     $this->product = $product;
   }
 
-  public function getProduct(){
-    
+  public function getProduct()
+  {
+
     echo $this->product;
   }
 
-  public function addProduct($item){
+  public function addProduct($item)
+  {
     $this->product .= $item;
   }
 
-  public function getNews(){
+  public function getNews()
+  {
     echo 'ニュースです';
   }
 
 
-  public static function getStaticProduct($str){
+  public static function getStaticProduct($str)
+  {
     echo $str;
   }
-
 }
 
 $instance = new Product('テスト');
