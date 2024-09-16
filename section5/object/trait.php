@@ -1,34 +1,39 @@
 <?php
 
-trait ProductTrait{
+trait ProductTrait
+{
 
-  public function getProduct(){
+  public function getProduct()
+  {
     echo 'プロダクト';
   }
 }
 
-trait NewsTrait{
-  
-  public function getNews(){
+trait NewsTrait
+{
+
+  public function getNews()
+  {
     echo 'ニュース';
   }
 }
 
 
-class Product{
+class Product
+{
 
   use ProductTrait;
   use NewsTrait;
 
-  public function getInformation(){
+  public function getInformation()
+  {
     echo 'クラスです';
   }
 
-  // public function getNews(){
-  //   echo 'クラスのニュースです';
-  // }
-
-
+  public function getNews()
+  {
+    echo 'クラスのニュースです';
+  }
 }
 
 $product = new Product();
